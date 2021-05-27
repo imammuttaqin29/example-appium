@@ -11,9 +11,10 @@ class Dialog {
     get regisEmail() { return $('//android.widget.EditText[@resource-id="com.loginmodule.learning:id/textInputEditTextEmail"]') };
     get regisPassword() { return $('//android.widget.EditText[@resource-id="com.loginmodule.learning:id/textInputEditTextPassword"]') };
     get regisConPassword() { return $('//android.widget.EditText[@resource-id="com.loginmodule.learning:id/textInputEditTextConfirmPassword"]') };
-    get regisBtn() { return $('//android.widget.Button[@resource-id="com.loginmodule.learning:id/textInputEditTextConfirmPassword"]') };
+    get regisBtn() { return $('//android.widget.Button[@resource-id="com.loginmodule.learning:id/appCompatButtonRegister"]') };
     get regisLoginBtn() { return $('//android.widget.TextView[@resource-id="com.loginmodule.learning:id/appCompatTextViewLoginLink"]') };
     get regisNotif() { return $('//android.widget.TextView[@resource-id="com.loginmodule.learning:id/snackbar_text"]') };
+    get regisError() { return $('//android.widget.TextView[@index="0"]') };
 
     // #main Activity
     get mainName () {return $('//android.widget.TextView[@resource-id="com.loginmodule.learning:id/textViewName" && @index="2"]')};
@@ -40,6 +41,14 @@ class Dialog {
         await (await this.loginEmail).setValue(email);
         await (await this.loginPassword).setValue(password);
         await (await this.loginBtn).click();
+    }
+
+    async regis (name, email, password, conpassword) {
+        await (await this.regisName).setValue(name);
+        await (await this.regisEmail).setValue(email);
+        await (await this.regisPassword).setValue(password);
+        await (await this.regisConPassword).setValue(conpassword);
+        await (await this.regisBtn).click();
     }
 
 }
